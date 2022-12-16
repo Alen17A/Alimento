@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAC9C9">
+
+    <ImageView
+        android:id="@+id/imv_food"
+        android:layout_width="158dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="32dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/food_ordering"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="160dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/table_reservation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imv_recipes"
+        android:layout_width="155dp"
+        android:layout_height="159dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/recipes"
+        app:layout_constraintBottom_toTopOf="@+id/tv_recipes"
+        app:layout_constraintEnd_toEndOf="@+id/imv_food"
+        app:layout_constraintStart_toStartOf="@+id/imv_food" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="159dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/catering"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="Order Food"
+        android:textColor="#131313"
+        app:layout_constraintEnd_toEndOf="@+id/imv_food"
+        app:layout_constraintStart_toStartOf="@+id/imv_food"
+        app:layout_constraintTop_toBottomOf="@+id/imv_food" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Table Reservation"
+        android:textColor="#191818"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/tv_recipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:text="Recipes"
+        android:textColor="#151414"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imv_recipes"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="@+id/imv_recipes" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
+        android:text="Catering"
+        android:textColor="#121111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toStartOf="@+id/imageView6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

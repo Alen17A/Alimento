@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705075732846",
+    "project_id": "alimento-app-28637",
+    "storage_bucket": "alimento-app-28637.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705075732846:android:51c8ad31d390e07d04e17f",
+        "android_client_info": {
+          "package_name": "com.example.alimentoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705075732846-r0pif82m3fmom8t78jp6lnqa8elsc6gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmKhGRytA8-umQKff8FVcWPYoTfoUvxeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705075732846-r0pif82m3fmom8t78jp6lnqa8elsc6gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
