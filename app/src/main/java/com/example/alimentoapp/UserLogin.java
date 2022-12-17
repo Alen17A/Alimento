@@ -28,7 +28,6 @@ public class UserLogin extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore firestore;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +82,7 @@ public class UserLogin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Intent h = new Intent(UserLogin.this, HomePage.class);
                             startActivity(h);
+                            Toast.makeText(UserLogin.this,"Logged in successfully", Toast.LENGTH_LONG).show();
                         } else
                         {
                             Toast.makeText(UserLogin.this, "Invalid Credentials", Toast.LENGTH_LONG).show();

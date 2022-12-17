@@ -13,5 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/comfortaa_variablefont_wght</item>
+
+        <item name="android:fontFamily" tools:ignore="DuplicateDefinition">@font/caramel_regular</item>
     </style>
 </resources>

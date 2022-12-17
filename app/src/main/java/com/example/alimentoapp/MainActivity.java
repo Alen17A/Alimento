@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,10 +15,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -93,9 +98,24 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
-
                 UserData obj = new UserData(username, phoneno);
+                //Map<String, Object> obj = new HashMap<>();
+                //obj.put("username",username);
+                //obj.put("phoneno",phoneno);
                 firestore.collection("USERS").document(emailid).set(obj);
+ //                       .addOnSuccessListener(new OnSuccessListener<Void>() {
+                           // @Override
+                           // public void onSuccess(Void unused) {
+                             //   Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                           // }
+                       // })
+                       // .addOnFailureListener(new OnFailureListener() {
+                         //   @Override
+                           // public void onFailure(@NonNull Exception e) {
+                             //   Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                               // Log.d("error",e.getMessage());
+                            // }
+                       // });
             }
 
         });
