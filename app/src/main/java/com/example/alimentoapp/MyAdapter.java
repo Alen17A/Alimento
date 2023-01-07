@@ -1,12 +1,15 @@
 package com.example.alimentoapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -37,6 +40,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         holder.recipename.setText(recipeData.recipename);
 
+        holder.recp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent d = new Intent(view.getContext(),RecipeDetail.class);
+                String repname = recipeData.recipename;
+                d.putExtra("recipename",repname);
+                view.getContext().startActivity(d);
+            }
+        });
+
     }
 
     @Override
@@ -47,11 +60,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView recipename;
+        CardView recp;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             recipename=itemView.findViewById(R.id.tv_recipe);
+            recp=itemView.findViewById(R.id.cardView_recplst);
+
+
+
         }
     }
 }

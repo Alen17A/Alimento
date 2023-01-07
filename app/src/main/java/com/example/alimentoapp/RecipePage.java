@@ -2,12 +2,17 @@ package com.example.alimentoapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -27,10 +32,12 @@ public class RecipePage extends AppCompatActivity {
     ProgressDialog progressDialog;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_page);
+
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -46,7 +53,7 @@ public class RecipePage extends AppCompatActivity {
         myAdapter = new MyAdapter(RecipePage.this,recipeDataArrayList);
 
         recyclerView.setAdapter(myAdapter);
-        
+
         EventChangeListener();
 
     }

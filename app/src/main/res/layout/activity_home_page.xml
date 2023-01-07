@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView_recplst"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginStart="54dp"
@@ -86,10 +86,10 @@
         android:layout_marginTop="25dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_recplst"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintStart_toStartOf="@+id/cardView_recplst"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_recplst">
 
         <ImageView
             android:id="@+id/imageView5"

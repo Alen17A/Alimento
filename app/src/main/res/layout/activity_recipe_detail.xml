@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/offwhite"
+    tools:context=".RecipeDetail">
+
+    <TextView
+        android:id="@+id/tv_recpname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="128dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Recipe Name"
+        android:textColor="#0B0A0A"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Preparation Time"
+        android:textColor="#0B0A0A"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recpname" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Duration"
+        android:textColor="#070707"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_prep" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Ingredients"
+        android:textColor="#070707"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_duratn" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Directions"
+        android:textColor="#070707"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ingr" />
+
+    <Button
+        android:id="@+id/button_download"
+        android:layout_width="286dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="100dp"
+        android:background="@color/black"
+        android:drawableEnd="@drawable/ic_baseline_arrow_downward_24"
+        android:drawablePadding="-10dp"
+        android:drawableTint="#EFEBEB"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:paddingRight="10dp"
+        android:text="Download"
+        android:textColor="#F4F0F0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dircts" />
+
+    <TextView
+        android:id="@+id/tv_prep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/tv_duratn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/tv_ingr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/tv_dircts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+</androidx.constraintlayout.widget.ConstraintLayout>
