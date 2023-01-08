@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_recplst"
+        android:id="@+id/cardView_food"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginStart="54dp"
@@ -80,16 +80,16 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cardView_caterers"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="25dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView_recplst"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_food"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cardView_recplst"
-        app:layout_constraintTop_toBottomOf="@+id/cardView_recplst">
+        app:layout_constraintStart_toStartOf="@+id/cardView_food"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_food">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -115,10 +115,10 @@
         android:layout_marginTop="25dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_caterers"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+        app:layout_constraintStart_toStartOf="@+id/cardView_caterers"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_caterers">
 
         <ImageView
             android:id="@+id/imageView6"

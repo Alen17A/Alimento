@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,19 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<RecipeData> recipeDataArrayList;
 
-    public MyAdapter(Context context, ArrayList<RecipeData> recipeDataArrayList) {
+    public RecipeAdapter(Context context, ArrayList<RecipeData> recipeDataArrayList) {
         this.context = context;
         this.recipeDataArrayList = recipeDataArrayList;
     }
 
     @NonNull
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecipeAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.recipe,parent,false);
 
@@ -34,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecipeAdapter.MyViewHolder holder, int position) {
 
         RecipeData recipeData = recipeDataArrayList.get(position);
 

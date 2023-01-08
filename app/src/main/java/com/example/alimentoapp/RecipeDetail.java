@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
+
 public class RecipeDetail extends AppCompatActivity {
 
     TextView recipname,prep,duratn,ingre,directn;
@@ -71,12 +72,12 @@ public class RecipeDetail extends AppCompatActivity {
             }
         });
 
-        download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        download.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
 //        DocumentReference docRef = db.collection("Recipes").document("");
 //        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
