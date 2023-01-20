@@ -28,6 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class CatererBookNow extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class CatererBookNow extends AppCompatActivity {
     EditText bkuname,bkuemail,bkuphno,bkuevaddr,bkunop,bkutyf,bkudate,bkutime;
     Button booknow;
     FirebaseFirestore db;
-    String sbkagnm,sbkunm,sbkuem,sbkuph,sbkueaddr,sbkunp,sbkutf,sbkudt,sbkutm;
+    String sbkagnm,sbkunm,sbkuem,sbkuph,sbkueaddr,sbkunp,sbkutf,sbkudt,sbkutm,userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class CatererBookNow extends AppCompatActivity {
         db=FirebaseFirestore.getInstance();
 
         sbkagnm=bkagencnm.getText().toString();
+
 
 
         Intent bk=getIntent();
@@ -92,6 +94,39 @@ public class CatererBookNow extends AppCompatActivity {
                 sbkudt=bkudate.getText().toString().trim();
                 sbkutm=bkutime.getText().toString().trim();
 
+                if (sbkunm.isEmpty()) {
+                    bkuname.setError("This field is required");
+                    return;
+                }
+                if (sbkuem.isEmpty()) {
+                    bkuemail.setError("This field is required");
+                    return;
+                }
+                if (sbkuph.isEmpty()) {
+                    bkuphno.setError("This field is required");
+                    return;
+                }
+                if (sbkueaddr.isEmpty()) {
+                    bkuevaddr.setError("This field is required");
+                    return;
+                }
+                if (sbkunp.isEmpty()) {
+                    bkunop.setError("This field is required");
+                    return;
+                }
+                if (sbkutf.isEmpty()) {
+                    bkutyf.setError("This field is required");
+                    return;
+                }
+                if (sbkudt.isEmpty()) {
+                    bkudate.setError("This field is required");
+                    return;
+                }
+                if (sbkutm.isEmpty()) {
+                    bkutime.setError("This field is required");
+                    return;
+                }
+
 
                 saveDatatoFirestore(sbkagnm,sbkunm,sbkuem,sbkuph,sbkueaddr,sbkunp,sbkutf,sbkudt,sbkutm);
 
@@ -114,18 +149,20 @@ public class CatererBookNow extends AppCompatActivity {
         bkData.put("bkdate", sbkudt);
         bkData.put("bktime", sbkutm);
 
-        db.collection("BookingsCaterer").add(bkData)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        userId= UUID.randomUUID().toString();
+
+        db.collection("BookingsCaterer").document(userId).set(bkData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(CatererBookNow.this,"Booked Successfully",Toast.LENGTH_LONG).show();
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                        Toast.makeText(CatererBookNow.this, "Booked Successfully", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
+                        Log.w(TAG, "Error writing document", e);
                     }
                 });
     }

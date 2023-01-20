@@ -1,26 +1,31 @@
 package com.example.alimentoapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.itextpdf.kernel.pdf.*;
+import com.itextpdf.layout.*;
+import com.itextpdf.layout.element.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 
 public class RecipeDetail extends AppCompatActivity {
@@ -29,6 +34,7 @@ public class RecipeDetail extends AppCompatActivity {
     String srecip,sprep,sduratn,singre,sdirectn;
     Button download;
     FirebaseFirestore db;
+    File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +51,7 @@ public class RecipeDetail extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         srecip=recipname.getText().toString();
-//        sprep=prep.getText().toString();
-//        sduratn=duratn.getText().toString();
-//        singre=ingre.getText().toString();
-//        sdirectn=directn.getText().toString();
+
 
         Intent rd = getIntent();
         srecip = rd.getStringExtra("recipename");
@@ -72,12 +75,54 @@ public class RecipeDetail extends AppCompatActivity {
             }
         });
 
-//        download.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                sprep=prep.getText().toString();
+                sduratn=duratn.getText().toString();
+                singre=ingre.getText().toString();
+                sdirectn=directn.getText().toString();
+
+                String path = String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));
+                String pdfFile = srecip + ".pdf";
+                File file = new File(path,pdfFile);
+                Paragraph paragraph1=new Paragraph(srecip);
+                Paragraph paragraph2=new Paragraph(sprep);
+                Paragraph paragraph3=new Paragraph(sduratn);
+                Paragraph paragraph4=new Paragraph(singre);
+                Paragraph paragraph5=new Paragraph(sdirectn);
+
+                if (file.exists()){
+                    int i=1;
+                    while (file.exists()){
+                        file = new File(path,srecip + "(" + i + ")" + ".pdf");
+                        i++;
+                    }
+                }
+
+                PdfWriter pdfWriter;
+                try {
+                    pdfWriter = new PdfWriter(file);
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+
+                PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+                pdfDocument.addNewPage();
+
+                Document document = new Document(pdfDocument);
+                document.add(paragraph1);
+                document.add(paragraph2);
+                document.add(paragraph3);
+                document.add(paragraph4);
+                document.add(paragraph5);
+
+                document.close();
+
+
+            }
+        });
 
 //        DocumentReference docRef = db.collection("Recipes").document("");
 //        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
