@@ -138,6 +138,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_tableres"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="25dp"
