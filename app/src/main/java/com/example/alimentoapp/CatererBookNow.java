@@ -157,6 +157,8 @@ public class CatererBookNow extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
                         Toast.makeText(CatererBookNow.this, "Booked Successfully", Toast.LENGTH_SHORT).show();
+                        Intent b = new Intent(CatererBookNow.this,CatererPage.class);
+                        startActivity(b);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class HomePage extends AppCompatActivity {
 
-    CardView recipes,caterers;
+    CardView recipes,caterers,food;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -21,6 +21,7 @@ public class HomePage extends AppCompatActivity {
 
         recipes=findViewById(R.id.cardView_recipes);
         caterers=findViewById(R.id.cardView_caterers);
+        food=findViewById(R.id.cardView_food);
 
         recipes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,14 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent c = new Intent(HomePage.this, CatererPage.class);
                 startActivity(c);
+            }
+        });
+
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent f = new Intent(HomePage.this, RestaurantPage.class);
+                startActivity(f);
             }
         });
     }
