@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 public class HomePage extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class HomePage extends AppCompatActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent f = new Intent(HomePage.this, RestaurantPage.class);
+                Intent f = new Intent(HomePage.this, RestaurantFoodPage.class);
                 startActivity(f );
             }
         });
@@ -51,7 +50,7 @@ public class HomePage extends AppCompatActivity {
         tableres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent t = new Intent(HomePage.this,RestaurantPage.class);
+                Intent t = new Intent(HomePage.this, RestaurantTablePage.class);
                 startActivity(t);
             }
         });

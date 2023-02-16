@@ -18,11 +18,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-public class RestaurantPage extends AppCompatActivity {
+public class RestaurantFoodPage extends AppCompatActivity {
 
     RecyclerView recyclerView3;
-    ArrayList<RestaurantData> restaurantDataArrayList;
-    RestaurantAdapter myAdapter3;
+    ArrayList<RestaurantFoodData> restaurantFoodDataArrayList;
+    RestaurantFoodAdapter myAdapter3;
     FirebaseFirestore db;
 
     ProgressDialog progressDialog;
@@ -30,7 +30,7 @@ public class RestaurantPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_page);
+        setContentView(R.layout.activity_restaurant_food_page);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -42,8 +42,8 @@ public class RestaurantPage extends AppCompatActivity {
         recyclerView3.setLayoutManager(new LinearLayoutManager(this));
 
         db = FirebaseFirestore.getInstance();
-        restaurantDataArrayList = new ArrayList<RestaurantData>();
-        myAdapter3 = new RestaurantAdapter(RestaurantPage.this,restaurantDataArrayList);
+        restaurantFoodDataArrayList = new ArrayList<RestaurantFoodData>();
+        myAdapter3 = new RestaurantFoodAdapter(RestaurantFoodPage.this, restaurantFoodDataArrayList);
 
         recyclerView3.setAdapter(myAdapter3);
 
@@ -71,7 +71,7 @@ public class RestaurantPage extends AppCompatActivity {
 
                             if (dc.getType() == DocumentChange.Type.ADDED){
 
-                                restaurantDataArrayList.add(dc.getDocument().toObject(RestaurantData.class));
+                                restaurantFoodDataArrayList.add(dc.getDocument().toObject(RestaurantFoodData.class));
                             }
 
                             myAdapter3.notifyDataSetChanged();

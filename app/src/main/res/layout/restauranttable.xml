@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardView_restlst1"
+    android:id="@+id/cardView_restlst2"
     android:layout_width="350dp"
     android:layout_height="100dp"
     android:layout_marginStart="30dp"
@@ -14,15 +14,28 @@
     app:layout_constraintTop_toBottomOf="@+id/textView12">
 
     <TextView
-        android:id="@+id/tv_rest1"
+        android:id="@+id/tv_rest2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-20dp"
         android:fontFamily="@font/comfortaa_variablefont_wght"
         android:text="Restaurant Name"
         android:textColor="#0C0C0C"
-        android:textSize="16sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_rest2ad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Restaurant Address"
+        android:textColor="#000000"
+        android:textSize="14sp" />
 </androidx.cardview.widget.CardView>
 
 
