@@ -2,7 +2,7 @@ package com.example.alimentoapp;
 
 public class RestaurantFoodData {
 
-    String hotelname,hoteladdress;
+    String hotelname, hoteladdress;
 
     public RestaurantFoodData(){}
 

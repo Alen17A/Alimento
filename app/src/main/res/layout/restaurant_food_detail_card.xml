@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_fooddetail"
+    android:layout_width="160dp"
+    android:layout_height="250dp"
+    android:layout_marginStart="25dp"
+    android:layout_marginTop="43dp"
+    android:layout_marginEnd="31dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+    <ImageView
+        android:id="@+id/im_restfdim"
+        android:layout_width="128dp"
+        android:layout_height="105dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_corners"
+        android:clipToOutline="true" />
+
+    <TextView
+        android:id="@+id/tv_restfdnm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Food Name"
+        android:textColor="#0C0C0C"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_restfdpr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Food Price"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+</androidx.cardview.widget.CardView>
+
+

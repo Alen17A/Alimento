@@ -29,7 +29,7 @@ public class RestaurantFoodAdapter extends RecyclerView.Adapter<RestaurantFoodAd
     @Override
     public RestaurantFoodAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.restaurantfood,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.restaurant_food,parent,false);
 
         return new MyViewHolder(v);
     }
@@ -46,6 +46,8 @@ public class RestaurantFoodAdapter extends RecyclerView.Adapter<RestaurantFoodAd
             @Override
             public void onClick(View view) {
                 Intent fd = new Intent(view.getContext(),RestaurantFoodDetail.class);
+                String restname = restaurantFoodData.hotelname;
+                fd.putExtra("hotelname",restname);
                 view.getContext().startActivity(fd);
             }
         });

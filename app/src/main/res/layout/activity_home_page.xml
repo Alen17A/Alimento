@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="180dp"
+            android:fontFamily="@font/comfortaa_variablefont_wght"
             android:text="Order Food"
             android:textColor="#0C0C0C"
             android:textSize="16sp" />
@@ -103,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="180dp"
+            android:fontFamily="@font/comfortaa_variablefont_wght"
             android:text="Catering Services"
             android:textColor="#0C0C0C"
             android:textSize="16sp" />
@@ -132,6 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="180dp"
+            android:fontFamily="@font/comfortaa_variablefont_wght"
             android:text="Recipes"
             android:textColor="#0C0C0C"
             android:textSize="16sp" />
@@ -161,6 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="180dp"
+            android:fontFamily="@font/comfortaa_variablefont_wght"
             android:text="Table Reservation"
             android:textColor="#0C0C0C"
             android:textSize="16sp" />
