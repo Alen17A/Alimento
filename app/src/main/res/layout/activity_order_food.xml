@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderFood">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="#EC970E">
+
+            <TextView
+                android:id="@+id/tv_fdorfdnm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="52dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="Food Name"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_fdorfdqty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="Food Quantity"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_fdorfdpr"
+                app:layout_constraintStart_toStartOf="@+id/tv_fdorfdpr"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fdorfdpr" />
+
+            <TextView
+                android:id="@+id/tv_fdorfdpr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="Food Price"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tv_fdorfdnm"
+                app:layout_constraintStart_toStartOf="@+id/tv_fdorfdnm"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fdorfdnm" />
+
+            <ImageView
+                android:id="@+id/im_fdorim"
+                android:layout_width="178dp"
+                android:layout_height="148dp"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="44dp"
+                android:background="@drawable/circular_bg"
+                android:clipToOutline="true"
+                android:src="@drawable/get_started"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_fdorfdnm"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:layout_marginTop="-30dp"
+            android:background="@drawable/rounded_layout"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="Enter your Details"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/ed_fdornm"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="96dp"
+                android:background="@drawable/input_border"
+                android:drawableLeft="@drawable/ic_name"
+                android:drawablePadding="30dp"
+                android:ems="10"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#605B5B"
+                app:layout_constraintEnd_toEndOf="@+id/textView25"
+                app:layout_constraintStart_toStartOf="@+id/textView25"
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+            <EditText
+                android:id="@+id/ed_fdorph"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/input_border"
+                android:drawableLeft="@drawable/ic_phno"
+                android:drawablePadding="30dp"
+                android:ems="10"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:hint="Mobile Number"
+                android:inputType="phone"
+                android:paddingStart="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#605B5B"
+                app:layout_constraintEnd_toEndOf="@+id/ed_fdornm"
+                app:layout_constraintStart_toStartOf="@+id/ed_fdornm"
+                app:layout_constraintTop_toBottomOf="@+id/ed_fdornm" />
+
+            <EditText
+                android:id="@+id/ed_fdorad"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/input_border"
+                android:drawableLeft="@drawable/baseline_house_24"
+                android:drawablePadding="30dp"
+                android:ems="10"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:hint="Address"
+                android:inputType="textPostalAddress"
+                android:paddingStart="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#605B5B"
+                app:layout_constraintEnd_toEndOf="@+id/ed_fdorph"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/ed_fdorph"
+                app:layout_constraintTop_toBottomOf="@+id/ed_fdorph" />
+
+            <Button
+                android:id="@+id/button_fdorder"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="64dp"
+                android:background="@drawable/input_border"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="ORDER"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/ed_fdorad"
+                app:layout_constraintStart_toStartOf="@+id/ed_fdorad"
+                app:layout_constraintTop_toBottomOf="@+id/ed_fdorad" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

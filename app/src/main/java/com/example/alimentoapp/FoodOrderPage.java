@@ -31,7 +31,7 @@ public class FoodOrderPage extends AppCompatActivity {
     ImageView fddim, takeim;
     Button minus, plus, order, take;
     FirebaseFirestore db;
-    String sfdnm, sfdpr;
+    String sfdnm, sfdpr, sfdqty;
     int qty = 1;
 
     @SuppressLint("MissingInflatedId")
@@ -53,8 +53,9 @@ public class FoodOrderPage extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        sfdpr = fddpr.getText().toString();
+
         sfdnm = fddnm.getText().toString();
+
 
         Intent fdde = getIntent();
         sfdnm = fdde.getStringExtra("foodname");
@@ -80,6 +81,9 @@ public class FoodOrderPage extends AppCompatActivity {
                                     qty--;
                                     fddqty.setText(String.valueOf(qty));
                                     fddpr.setText("Rs." + (price * qty));
+                                    sfdpr = fddpr.getText().toString();
+                                    sfdqty = fddqty.getText().toString();
+
                                 }
                             }
                         });
@@ -90,12 +94,26 @@ public class FoodOrderPage extends AppCompatActivity {
                                 qty++;
                                 fddqty.setText(String.valueOf(qty));
                                 fddpr.setText("Rs." + (price * qty));
+                                sfdpr = fddpr.getText().toString();
+                                sfdqty = fddqty.getText().toString();
                             }
                         });
                     }
                 } else {
                     Toast.makeText(FoodOrderPage.this, "Failed", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fdor = new Intent(FoodOrderPage.this,OrderFood.class);
+                fdor.putExtra("foodname",sfdnm);
+                fdor.putExtra("foodprice",sfdpr);
+                fdor.putExtra("foodquantity",sfdqty);
+                startActivity(fdor);
             }
         });
 
