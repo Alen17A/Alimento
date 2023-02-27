@@ -2,14 +2,15 @@ package com.example.alimentoapp;
 
 public class FoodDetailData {
 
-    String foodname, foodprice, foodim;
+    String foodname, foodprice, foodim, hotelname;
 
     public FoodDetailData(){}
 
-    public FoodDetailData(String foodname, String foodprice, String foodim) {
+    public FoodDetailData(String foodname, String foodprice, String foodim, String hotelname) {
         this.foodname = foodname;
         this.foodprice = foodprice;
         this.foodim = foodim;
+        this.hotelname = hotelname;
     }
 
     public String getFoodname() {
@@ -34,5 +35,13 @@ public class FoodDetailData {
 
     public void setFoodim(String foodim) {
         this.foodim = foodim;
+    }
+
+    public String getHotelname() {
+        return hotelname;
+    }
+
+    public void setHotelname(String hotelname) {
+        this.hotelname = hotelname;
     }
 }

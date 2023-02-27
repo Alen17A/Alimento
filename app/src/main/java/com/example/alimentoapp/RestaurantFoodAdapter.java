@@ -45,10 +45,10 @@ public class RestaurantFoodAdapter extends RecyclerView.Adapter<RestaurantFoodAd
         holder.rest1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent fd = new Intent(view.getContext(),RestaurantFoodDetail.class);
+                Intent fd1 = new Intent(view.getContext(),RestaurantFoodDetail.class);
                 String restname = restaurantFoodData.hotelname;
-                fd.putExtra("hotelname",restname);
-                view.getContext().startActivity(fd);
+                fd1.putExtra("hotelname",restname);
+                view.getContext().startActivity(fd1);
             }
         });
 

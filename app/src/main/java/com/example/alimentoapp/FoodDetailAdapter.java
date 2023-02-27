@@ -60,7 +60,9 @@ public class FoodDetailAdapter extends RecyclerView.Adapter<FoodDetailAdapter.My
             public void onClick(View view) {
                 Intent fdd = new Intent(view.getContext(),FoodOrderPage.class);
                 String fdname = foodDetailData.foodname;
+                String htname = foodDetailData.hotelname;
                 fdd.putExtra("foodname",fdname);
+                fdd.putExtra("hotelname2",htname);
                 view.getContext().startActivity(fdd);
             }
         });
