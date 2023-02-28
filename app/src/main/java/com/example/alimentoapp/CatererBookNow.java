@@ -151,7 +151,7 @@ public class CatererBookNow extends AppCompatActivity {
 
         userId= UUID.randomUUID().toString();
 
-        db.collection("BookingsCaterer").document(userId).set(bkData)
+        db.collection("BookingsCaterer").document().set(bkData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

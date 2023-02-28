@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/offwhite"
+    tools:context=".TableSlotReserve">
+
+    <TextView
+        android:id="@+id/tv_restnmts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="88dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Restauarant Name"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_tstm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="Time Slot"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_restnmts"
+        app:layout_constraintStart_toStartOf="@+id/tv_restnmts"
+        app:layout_constraintTop_toBottomOf="@+id/tv_restnmts" />
+
+    <EditText
+        android:id="@+id/ed_tsnm"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/input_border"
+        android:drawableLeft="@drawable/ic_name"
+        android:drawablePadding="30dp"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#5A5858"
+        app:layout_constraintEnd_toEndOf="@+id/tv_tstm"
+        app:layout_constraintStart_toStartOf="@+id/tv_tstm"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tstm" />
+
+    <EditText
+        android:id="@+id/ed_tsphno"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/input_border"
+        android:drawableLeft="@drawable/ic_phno"
+        android:drawablePadding="30dp"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#5A5858"
+        app:layout_constraintEnd_toEndOf="@+id/ed_tsnm"
+        app:layout_constraintStart_toStartOf="@+id/ed_tsnm"
+        app:layout_constraintTop_toBottomOf="@+id/ed_tsnm" />
+
+    <EditText
+        android:id="@+id/ed_tsnop"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/input_border"
+        android:drawableLeft="@drawable/baseline_people_24"
+        android:drawablePadding="30dp"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:hint="Number of people"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#5A5858"
+        app:layout_constraintEnd_toEndOf="@+id/ed_tsphno"
+        app:layout_constraintStart_toStartOf="@+id/ed_tsphno"
+        app:layout_constraintTop_toBottomOf="@+id/ed_tsphno" />
+
+    <EditText
+        android:id="@+id/ed_tsdate"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/input_border"
+        android:drawableLeft="@drawable/baseline_date_range_24"
+        android:drawablePadding="30dp"
+        android:ems="10"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:hint="Date"
+        android:inputType="date"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#5A5858"
+        app:layout_constraintEnd_toEndOf="@+id/ed_tsnop"
+        app:layout_constraintStart_toStartOf="@+id/ed_tsnop"
+        app:layout_constraintTop_toBottomOf="@+id/ed_tsnop" />
+
+    <Button
+        android:id="@+id/button_tsreserve"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="101dp"
+        android:background="@drawable/input_border"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:text="RESERVE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/ed_tsdate"
+        app:layout_constraintStart_toStartOf="@+id/ed_tsdate"
+        app:layout_constraintTop_toBottomOf="@+id/ed_tsdate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

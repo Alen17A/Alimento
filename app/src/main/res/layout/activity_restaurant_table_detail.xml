@@ -1,9 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestaurantTableDetail">
+    android:background="@color/alimentoOrange"
+    tools:context=".RestaurantFoodDetail">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_restnmtb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="84dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="RESTAURANT NAME"
+                android:textColor="#020202"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/im_resttbim"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_restnmtb" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:background="@drawable/rounded_layout">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="88dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/comfortaa_variablefont_wght"
+                android:text="Choose a time slot"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm1"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="26dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toStartOf="@+id/cardView_tm2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm2"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="34dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm3"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="34dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="@+id/cardView_tm1"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm1">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm4"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="34dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView_tm2"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm2">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm5"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="@+id/cardView_tm3"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm3">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm6"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView_tm4"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm4">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm7"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="@+id/cardView_tm5"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm5">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm8"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView_tm6"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm6">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm9"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="@+id/cardView_tm7"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm7">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_tm10"
+                android:layout_width="160dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView_tm8"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_tm8">
+
+                <TextView
+                    android:id="@+id/tv_tbsltm10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/comfortaa_variablefont_wght"
+                    android:text="Time Slot"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</ScrollView>
