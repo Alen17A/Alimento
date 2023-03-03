@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText name,phno,email,password,cpassword;
+    EditText name,phno,email,address,password,cpassword;
     Button signup;
     TextView login;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         name=findViewById(R.id.ed_uname);
         phno=findViewById(R.id.ed_uphno);
         email=findViewById(R.id.ed_uemail);
+        address=findViewById(R.id.ed_uaddr);
         password=findViewById(R.id.ed_upassword);
         cpassword=findViewById(R.id.ed_ucpassword);
         signup=findViewById(R.id.button_usignup);
@@ -58,65 +60,42 @@ public class MainActivity extends AppCompatActivity {
                 String username = name.getText().toString().trim();
                 String emailid = email.getText().toString().trim();
                 String phoneno = phno.getText().toString().trim();
+                String uaddress = address.getText().toString().trim();
                 String passwd = password.getText().toString().trim();
                 String cpasswd = cpassword.getText().toString().trim();
 
-                if (username.isEmpty()) {
-                    name.setError("This field is required");
-                    return;
-                }
-                if (emailid.isEmpty()) {
-                    email.setError("This field is required");
-                    return;
-                }
-                if (phoneno.isEmpty()) {
-                    phno.setError("This field is required");
-                    return;
-                }
-                if (!passwd.equals(cpasswd)) {
-                    cpassword.setError("Password does not match");
-                    return;
-                }
 
-                auth.createUserWithEmailAndPassword(emailid, passwd)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, "You are in!!!", Toast.LENGTH_SHORT).show();
-                                    UserData obj = new UserData(username, phoneno);
-                                    firestore.collection("USERS").document(emailid).set(obj);
-                                    Intent i = new Intent(MainActivity.this, UserLogin.class);
-                                    startActivity(i);
-                                } else {
-                                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(username) || TextUtils.isEmpty(emailid) || TextUtils.isEmpty(phoneno) || TextUtils.isEmpty(uaddress) || TextUtils.isEmpty(passwd) || TextUtils.isEmpty(cpasswd)){
+                    Toast.makeText(getApplicationContext(),"Please fill all the fields",Toast.LENGTH_LONG).show();
+                } else if (passwd.length() < 6) {
+                    Toast.makeText(getApplicationContext(),"Password must contain at least 6 characters",Toast.LENGTH_LONG).show();
+                }else if (!passwd.equals(cpasswd)) {
+                    Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_LONG).show();
+                }else{
+                    auth.createUserWithEmailAndPassword(emailid, passwd)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "You are in!!!", Toast.LENGTH_SHORT).show();
+                                        UserData obj = new UserData(username, phoneno, uaddress);
+                                        firestore.collection("USERS").document(emailid).set(obj);
+                                        Intent i = new Intent(MainActivity.this, UserLogin.class);
+                                        startActivity(i);
+                                    } else {
+                                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                UserData obj = new UserData(username, phoneno);
-                //Map<String, Object> obj = new HashMap<>();
-                //obj.put("username",username);
-                //obj.put("phoneno",phoneno);
-                firestore.collection("USERS").document(emailid).set(obj);
- //                       .addOnSuccessListener(new OnSuccessListener<Void>() {
-                           // @Override
-                           // public void onSuccess(Void unused) {
-                             //   Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                           // }
-                       // })
-                       // .addOnFailureListener(new OnFailureListener() {
-                         //   @Override
-                           // public void onFailure(@NonNull Exception e) {
-                             //   Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                               // Log.d("error",e.getMessage());
-                            // }
-                       // });
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                    UserData obj = new UserData(username, phoneno, uaddress);
+                    firestore.collection("USERS").document(emailid).set(obj);
+                }
             }
 
         });
