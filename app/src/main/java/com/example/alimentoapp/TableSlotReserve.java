@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TableSlotReserve extends AppCompatActivity {
@@ -49,11 +50,11 @@ public class TableSlotReserve extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         Intent tsr = getIntent();
-        srestnm = tsr.getStringExtra("restname");
-        stmslt = tsr.getStringExtra("tmslot1");
+        srestnm = tsr.getStringExtra("hotelname4");
+        List<String> dataList = getIntent().getStringArrayListExtra("slots");
 
         restnm.setText(srestnm);
-        tmslt.setText(stmslt);
+        tmslt.setText((CharSequence) dataList);
 
         tsdate.setOnClickListener(new View.OnClickListener() {
             @Override

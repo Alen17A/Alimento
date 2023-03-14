@@ -43,7 +43,7 @@ public class RestaurantTableAdapter extends RecyclerView.Adapter<RestaurantTable
         holder.rest2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent tb = new Intent(view.getContext(), RestaurantTableDetail.class);
+                Intent tb = new Intent(view.getContext(), RestaurantTableDetailTest.class);
                 String restnm = restaurantTableData.hotelname;
                 tb.putExtra("hotelname3", restnm);
                 view.getContext().startActivity(tb);
