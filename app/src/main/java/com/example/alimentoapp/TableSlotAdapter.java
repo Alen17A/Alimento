@@ -46,18 +46,20 @@ public class TableSlotAdapter extends RecyclerView.Adapter<TableSlotAdapter.View
             if (documentSnapshot != null && documentSnapshot.exists()) {
                 String value = documentSnapshot.getString(field);
                 holder.tbslt.setText(value);
+
+                holder.tbsl.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent tb2 = new Intent(v.getContext(), TableSlotReserve.class);
+                        tb2.putExtra("slots",value);
+                        v.getContext().startActivity(tb2);
+                    }
+                });
             }
         });
 
 
-        holder.tbsl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent tb2 = new Intent(v.getContext(), TableSlotReserve.class);
-//                tb2.putExtra("slots", String.valueOf(fields));
-                v.getContext().startActivity(tb2);
-            }
-        });
+
     }
 
     @Override

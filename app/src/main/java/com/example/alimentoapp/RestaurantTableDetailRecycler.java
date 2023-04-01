@@ -2,29 +2,22 @@ package com.example.alimentoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-public class RestaurantTableDetailTest extends AppCompatActivity {
+public class RestaurantTableDetailRecycler extends AppCompatActivity {
 
     RecyclerView recyclerViewt;
     TableSlotAdapter myadaptert;
@@ -36,7 +29,7 @@ public class RestaurantTableDetailTest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_restaurant_table_detail_test);
+        setContentView(R.layout.activity_restaurant_table_detail_recycler);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -69,11 +62,11 @@ public class RestaurantTableDetailTest extends AppCompatActivity {
                 }
             }
             else{
-                Toast.makeText(RestaurantTableDetailTest.this, "No Slots", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RestaurantTableDetailRecycler.this, "No Slots", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e -> {
             progressDialog.dismiss();
-            Toast.makeText(RestaurantTableDetailTest.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(RestaurantTableDetailRecycler.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         });
 
     }
