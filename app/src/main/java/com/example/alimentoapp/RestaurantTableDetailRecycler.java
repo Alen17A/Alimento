@@ -20,6 +20,7 @@ import java.util.Map;
 public class RestaurantTableDetailRecycler extends AppCompatActivity {
 
     RecyclerView recyclerViewt;
+    ArrayList<RestaurantReservationsData> restaurantReservationsDataArrayList;
     TableSlotAdapter myadaptert;
     FirebaseFirestore db;
     ProgressDialog progressDialog;
@@ -40,6 +41,7 @@ public class RestaurantTableDetailRecycler extends AppCompatActivity {
 
         recyclerViewt = findViewById(R.id.recyclerView_tbslt);
 
+
         Intent tb = getIntent();
         srestnmtbt = tb.getStringExtra("hotelname3");
 
@@ -57,7 +59,7 @@ public class RestaurantTableDetailRecycler extends AppCompatActivity {
 
                     recyclerViewt.setLayoutManager(new GridLayoutManager(this,2));
 
-                    myadaptert = new TableSlotAdapter(documentRef, fields);
+                    myadaptert = new TableSlotAdapter(documentRef, fields, restaurantReservationsDataArrayList);
                     recyclerViewt.setAdapter(myadaptert);
                 }
             }

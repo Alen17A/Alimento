@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="30dp"
+    android:background="@color/offwhite">
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="9dp"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:gravity="center_horizontal"
+        android:text="Choose one of the options"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_orforme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="106dp"
+        android:background="@drawable/input_border"
+        android:backgroundTint="#000000"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:padding="3dp"
+        android:text="ORDER FOR ME"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <Button
+        android:id="@+id/button_orforothers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/input_border"
+        android:backgroundTint="#000000"
+        android:fontFamily="@font/comfortaa_variablefont_wght"
+        android:padding="3dp"
+        android:text="ORDER FOR OTHERS"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button_orforme"
+        app:layout_constraintStart_toStartOf="@+id/button_orforme"
+        app:layout_constraintTop_toBottomOf="@+id/button_orforme" />
+</androidx.constraintlayout.widget.ConstraintLayout>

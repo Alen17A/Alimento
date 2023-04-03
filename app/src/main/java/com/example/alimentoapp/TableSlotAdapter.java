@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 
@@ -24,9 +26,17 @@ public class TableSlotAdapter extends RecyclerView.Adapter<TableSlotAdapter.View
     private DocumentReference documentRef;
     ListenerRegistration registration;
 
-    public TableSlotAdapter(DocumentReference documentReference, List<String> fields) {
+    ArrayList<RestaurantReservationsData> restaurantReservationsDataArrayList;
+    private int clickCount = 0;
+    private final int maxClicks = 5;
+    private String docId;
+    FirebaseFirestore db;
+
+    public TableSlotAdapter(DocumentReference documentReference, List<String> fields, ArrayList<RestaurantReservationsData> restaurantReservationsDataArrayList){
         this.documentRef = documentReference;
         this.fields = fields;
+        this.restaurantReservationsDataArrayList = restaurantReservationsDataArrayList;
+        this.docId = documentReference.getId();
     }
 
     @NonNull
@@ -38,7 +48,9 @@ public class TableSlotAdapter extends RecyclerView.Adapter<TableSlotAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         String field = fields.get(position);
+
         registration = documentRef.addSnapshotListener((documentSnapshot, e) -> {
             if (e != null) {
                 return;
@@ -50,9 +62,18 @@ public class TableSlotAdapter extends RecyclerView.Adapter<TableSlotAdapter.View
                 holder.tbsl.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent tb2 = new Intent(v.getContext(), TableSlotReserve.class);
-                        tb2.putExtra("slots",value);
-                        v.getContext().startActivity(tb2);
+                        if(clickCount < maxClicks) {
+                            Intent tb2 = new Intent(v.getContext(), TableSlotReserve.class);
+                            tb2.putExtra("slots", value);
+                            tb2.putExtra("hotelnames",docId);
+                            v.getContext().startActivity(tb2);
+
+                            clickCount++;
+                        }else{
+                            holder.tbslt.setText("Reservations Full");
+                            holder.tbsl.setEnabled(false);
+                            holder.tbsl.setAlpha(0.5f);
+                        }
                     }
                 });
             }

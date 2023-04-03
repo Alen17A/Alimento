@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,9 +42,9 @@ public class FoodOrderPage extends AppCompatActivity {
     TextView fddnm, fdddes, fddpr, fddqty;
     ImageView fddim, takeim;
     Button minus, plus, order, take;
-    FirebaseFirestore db;
+    static FirebaseFirestore db;
     FirebaseAuth auth;
-    String sfdnm, sfdpr, sfdqty, usfdnm, usfdph, emailid, sfdhtnmtk;
+    static String sfdnm, sfdpr, sfdqty, usfdnm, usfdph, usfdaddr, emailid, sfdhtnmtk;
     int qty = 1;
 
     @SuppressLint("MissingInflatedId")
@@ -75,6 +77,7 @@ public class FoodOrderPage extends AppCompatActivity {
                         if (documentSnapshot.exists()){
                             usfdnm = documentSnapshot.getString("username");
                             usfdph = documentSnapshot.getString("phoneno");
+                            usfdaddr = documentSnapshot.getString("uaddress");
 
                         }else {
                             Log.d(TAG, "User data does not exists");
@@ -144,12 +147,8 @@ public class FoodOrderPage extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent fdor = new Intent(FoodOrderPage.this,OrderFood.class);
-                fdor.putExtra("foodname",sfdnm);
-                fdor.putExtra("foodprice",sfdpr);
-                fdor.putExtra("foodquantity",sfdqty);
-                fdor.putExtra("hotelname", sfdhtnmtk);
-                startActivity(fdor);
+                FoodOrderDialog foodOrderDialog = new FoodOrderDialog();
+                foodOrderDialog.show(getSupportFragmentManager(), "FoodOrderDialog");
             }
         });
 
@@ -206,6 +205,69 @@ public class FoodOrderPage extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
                         Toast.makeText(FoodOrderPage.this, "Takeaway ordered successfully", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
+
+
+    public static class FoodOrderDialog extends DialogFragment {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            LayoutInflater layoutInflater = getLayoutInflater();
+            View foodorderview = layoutInflater.inflate(R.layout.food_order_dialog,null);
+            builder.setView(foodorderview);
+
+            Button orforme = foodorderview.findViewById(R.id.button_orforme);
+            Button orforothers = foodorderview.findViewById(R.id.button_orforothers);
+            orforme.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    saveOrderForMeDatatoFirestore(usfdnm,usfdph,usfdaddr);
+                    dismiss();
+                }
+            });
+
+            orforothers.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent fdor = new Intent(getActivity(),OrderFood.class);
+                    fdor.putExtra("foodname",sfdnm);
+                    fdor.putExtra("foodprice",sfdpr);
+                    fdor.putExtra("foodquantity",sfdqty);
+                    fdor.putExtra("hotelname", sfdhtnmtk);
+                    startActivity(fdor);
+                }
+            });
+            return builder.create();
+
+        }
+    }
+
+
+    public static void saveOrderForMeDatatoFirestore(String usfdnm, String usfdph, String usfdaddr){
+
+        Map<String, Object> ormData = new HashMap<>();
+        ormData.put("foodname", sfdnm);
+        ormData.put("foodprice", sfdpr);
+        ormData.put("foodquantity", sfdqty);
+        ormData.put("orusname", usfdnm);
+        ormData.put("orusphno", usfdph);
+        ormData.put("orusaddr", usfdaddr);
+        ormData.put("hotelname", sfdhtnmtk);
+
+        db.collection("FoodOrders").document().set(ormData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+//                        Toast.makeText(FoodOrderPage.this, "Ordered successfully", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

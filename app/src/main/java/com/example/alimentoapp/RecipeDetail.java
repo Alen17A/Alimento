@@ -20,8 +20,11 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.itextpdf.kernel.pdf.*;
+import com.itextpdf.kernel.pdf.canvas.parser.listener.TextChunk;
 import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.styledxmlparser.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -112,10 +115,30 @@ public class RecipeDetail extends AppCompatActivity {
                 pdfDocument.addNewPage();
 
                 Document document = new Document(pdfDocument);
-                document.add(paragraph1);
+
+                Paragraph mainHeading = new Paragraph(srecip);
+                mainHeading.setTextAlignment(TextAlignment.CENTER);
+                mainHeading.setFontSize(18f).setBold();
+                document.add(mainHeading);
+
+                Paragraph prep = new Paragraph("Preparation Time");
+                prep.setFontSize(14f).setBold().setUnderline();
+                document.add(prep);
                 document.add(paragraph2);
+
+                Paragraph dura = new Paragraph("Duration of preparing food");
+                dura.setFontSize(14f).setBold().setUnderline();
+                document.add(dura);
                 document.add(paragraph3);
+
+                Paragraph ingr = new Paragraph("Ingredients");
+                ingr.setFontSize(14f).setBold().setUnderline();
+                document.add(ingr);
                 document.add(paragraph4);
+
+                Paragraph dir = new Paragraph("Directions");
+                dir.setFontSize(14f).setBold().setUnderline();
+                document.add(dir);
                 document.add(paragraph5);
 
                 document.close();

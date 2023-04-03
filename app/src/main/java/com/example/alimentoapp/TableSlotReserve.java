@@ -51,8 +51,14 @@ public class TableSlotReserve extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        stmslt = getIntent().getStringExtra("slots");
+        Bundle extras = getIntent().getExtras();
+
+        stmslt = extras.getString("slots");
         tmslt.setText(stmslt);
+
+        srestnm = extras.getString("hotelnames");
+        restnm.setText(srestnm);
+
 
         tsdate.setOnClickListener(new View.OnClickListener() {
             @Override
